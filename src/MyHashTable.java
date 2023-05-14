@@ -32,15 +32,19 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         }
         else {
             HashNode<K, V> current = chainArray[index];
-            while (current != null) {
+            while (current.next != null) {
                 if (current.key.equals(key)) {
                     current.value = value;
                     return;
                 }
                 current = current.next;
             }
-            chainArray[index] = node;
-            node.next = current;
+            if (current.key.equals(key)){
+                current.value = value;
+            }
+            else {
+                current.next = node;
+            }
         }
         size++;
             }
@@ -110,7 +114,7 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
             }
         }
         for (int i=0; i<M; i++){
-            System.out.println("Bucket" + i + " : " + bucSize[i]);
+            System.out.println("Bucket" + "\t" + i + "\t" + bucSize[i]);
         }
     }
 
