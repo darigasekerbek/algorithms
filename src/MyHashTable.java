@@ -100,6 +100,20 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         }
         return null;
         }
+    public void printBucketSizes(){ //print size
+        int[] bucSize = new int[M];
+        for(int i= 0; i<M; i++){
+            HashNode<K,V> curr = chainArray[i];
+            while(curr != null){
+                bucSize[i]++;
+                curr = curr.next;
+            }
+        }
+        for (int i=0; i<M; i++){
+            System.out.println("Bucket" + i + " : " + bucSize[i]);
+        }
+    }
+
     }
 
 
