@@ -7,5 +7,11 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
             this.key = key;
             this.value = value;
         }
+        public String toString(){
+            return "{" + key + " " + value + "}";
+        }
     }
+    private HashNode<K, V>[] chainArray;
+    private int M = 11;
+    private int size;
 }
