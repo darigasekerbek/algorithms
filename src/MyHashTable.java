@@ -21,4 +21,29 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         this.M = M;
         chainArray = new HashNode[M]; //specified size M
     }
-}
+    private int hash(K key){
+        return Math.abs(key.hashCode()) % M; // this method computes hash code for specified key
+    }
+    public void put(K key, V value){ //this method adds key-value pair to the hash table
+        int index = hash(key); //calc index for given key
+        HashNode<K, V> node = new HashNode<>(key, value); //create a new HashNode with given key and value
+        if (chainArray[index] == null){
+            chainArray[index] = node;
+        }
+        else {
+            HashNode<K, V> current = chainArray[index];
+            while (current != null) {
+                if (current.key.equals(key)) {
+                    current.value = value;
+                    return;
+                }
+                current = current.next;
+            }
+            chainArray[index] = node;
+            node.next = current;
+        }
+        size++;
+            }
+
+        }
+
