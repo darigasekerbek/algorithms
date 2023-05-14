@@ -44,6 +44,39 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         }
         size++;
             }
+    public V get(K key){ //get the value stored in hash table associated with provided key
+        int index = hash(key);
+        HashNode<K, V> curr = chainArray[index];
+        while(curr != null) {
+            if (curr.key.equals(key)) {
+                return curr.value;
+            }
+            curr = curr.next;
+        }
+        return null;
+        }
+    public V remove(K key){
+        int index = hash(key);
+        HashNode<K, V > curr = chainArray[index];
+        HashNode<K, V > prev = null;
+
+        while (curr != null){
+            if(curr.key.equals(key)){
+                if(prev == null){
+                    chainArray[index] = curr.next;
+                }
+                else {
+                    prev.next = curr.next;
+                }
+                size--;
+                return curr.value;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        return null;
+    }
+
 
         }
 
