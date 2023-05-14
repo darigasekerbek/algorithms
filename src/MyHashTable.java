@@ -14,4 +14,11 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
     private HashNode<K, V>[] chainArray;
     private int M = 11;
     private int size;
+    public MyHashTable(){
+        chainArray = new HashNode[M]; //default size M
+    }
+    public MyHashTable(int M){
+        this.M = M;
+        chainArray = new HashNode[M]; //specified size M
+    }
 }
