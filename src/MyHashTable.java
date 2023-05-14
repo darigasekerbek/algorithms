@@ -55,7 +55,7 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         }
         return null;
         }
-    public V remove(K key){
+    public V remove(K key){ //used to remove a pair of key and value from hash table
         int index = hash(key);
         HashNode<K, V > curr = chainArray[index];
         HashNode<K, V > prev = null;
@@ -76,6 +76,33 @@ public class MyHashTable<K, V> { //Hash table is created with two parameters(K a
         }
         return null;
     }
-
+    public boolean contains(V value){ // check whether a given value is present in the hash table or not
+        for(int i=0; i<M; i++) {
+            HashNode<K, V> curr = chainArray[i];
+            while (curr != null) {
+                if (curr.value.equals(value)) {
+                    return true;
+                }
+                curr = curr.next;
+            }
         }
+        return false;
+            }
+    public K getKey(V value){ //this method retrieve key that associated with spec value from hash table
+        for (int i=0; i<M; i ++){
+            HashNode<K,V> curr = chainArray[i];
+            while (curr != null){
+                if(curr.value.equals(value)){
+                    return curr.key;
+                }
+                curr = curr.next;
+            }
+        }
+        return null;
+        }
+    }
+
+
+
+
 
