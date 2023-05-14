@@ -1,6 +1,6 @@
 # algorithms
 
-Code is a Java implementation of a hash table data structure that allows adding,
+This code is a Java implementation of a hash table data structure that allows adding,
 retrieving and removing key and value pairs. It uses separate chaining to handle collisions, 
 where each index in the hash table stores a linked list of key and value pairs.
 
